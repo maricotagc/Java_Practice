@@ -1,6 +1,6 @@
 # Java_Practice
 
-### Exercice 1
+### Exercise 1
 
 #### Create a method that receives a list of integers and return a Map<String, Integer> with the following keys: 
 
