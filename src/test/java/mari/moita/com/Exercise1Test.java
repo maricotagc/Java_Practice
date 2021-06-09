@@ -1,11 +1,15 @@
 package mari.moita.com;
 
+import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import static org.hamcrest.core.IsEqual.equalTo;
 
 public class Exercise1Test {
 
@@ -13,27 +17,64 @@ public class Exercise1Test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    //TODO: verify return and create assert
-    public void shouldReturnMap() {
+    public void shouldReturnTotal() {
         List<Integer> inputList = new ArrayList<Integer>();
-        inputList.add(0,1);
-        inputList.add(1, 2);
-        inputList.add(2, 3);
-        Exercise1 test = new Exercise1();
-        test.returnsMap(inputList);
+        inputList.add(1);
+        inputList.add(2);
+        inputList.add(3);
+
+        Map<String, Integer> resultMap = new Exercise1().returnsMap(inputList);
+
+        Assert.assertEquals(6, (int) resultMap.get("total"));
     }
 
-    //TODO: verify return and create assert
+    @Test
+    public void shouldReturnMin() {
+        List<Integer> inputList = new ArrayList<Integer>();
+        inputList.add(1);
+        inputList.add(2);
+        inputList.add(3);
+
+        Map<String, Integer> resultMap = new Exercise1().returnsMap(inputList);
+
+        Assert.assertEquals(1, (int) resultMap.get("min"));
+    }
+
+    @Test
+    public void shouldReturnMax() {
+        List<Integer> inputList = new ArrayList<Integer>();
+        inputList.add(1);
+        inputList.add(2);
+        inputList.add(3);
+
+        Map<String, Integer> resultMap = new Exercise1().returnsMap(inputList);
+
+        Assert.assertEquals(3, (int) resultMap.get("max"));
+    }
+
+    @Test
     public void shouldReturnIllegalExceptionForEmptyList() {
-        List<Integer> inputList = new ArrayList<Integer>();
-        Exercise1 test = new Exercise1();
-        test.returnsMap(inputList);
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("The inputted list is either null or empty"));
+        new Exercise1().returnsMap(new ArrayList<Integer>());
     }
 
-    //TODO: verify how to emulate null list and create assert
+    @Test
     public void shouldReturnIllegalExceptionForNullList() {
-        List<?> inputList = null;
-        Exercise1 test = new Exercise1();
-//        test.returnsMap(inputList);
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("The inputted list is either null or empty"));
+        new Exercise1().returnsMap(null);
+    }
+
+    @Test
+    public void shouldReturnIllegalExceptionForNegativeList() {
+        List<Integer> inputList = new ArrayList<Integer>();
+        inputList.add(-1);
+        inputList.add(-2);
+        inputList.add(-3);
+
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("The inputted list has negative values"));
+        new Exercise1().returnsMap(inputList);
     }
 }

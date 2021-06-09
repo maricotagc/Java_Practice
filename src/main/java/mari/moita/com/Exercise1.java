@@ -9,13 +9,9 @@ public class Exercise1
 {
 
     public Map<String, Integer> returnsMap(List<Integer> inputList){
-        Map<String, Integer> map1 = new HashMap<String, Integer>(){};
-        Integer min = inputList.get(0);
-        Integer max = inputList.get(0);
-        Integer total = min + max;
 
         if (inputList == null || inputList.isEmpty()) {
-            throw new IllegalArgumentException("The inputted list is null");
+            throw new IllegalArgumentException("The inputted list is either null or empty");
         }
 
         for (Integer elementX : inputList) {
@@ -24,6 +20,10 @@ public class Exercise1
             }
         }
 
+        Integer min = inputList.get(0);
+        Integer max = inputList.get(0);
+        Integer total = 0;
+
         for (Integer elementY : inputList) {
             if (elementY < min) {
                 min = elementY;
@@ -31,17 +31,29 @@ public class Exercise1
             if (elementY > max) {
                 max = elementY;
             }
+            total = total + elementY;
         }
 
-        for (Map.Entry<String, Integer> entry: map1.entrySet()) {
-            String key = entry.getKey();
-            Integer value = entry.getValue();
-        }
+        Map<String, Integer> map1 = new HashMap<String, Integer>(){};
 
         map1.put("min", min);
         map1.put("max", max);
         map1.put("total", total);
 
         return map1;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> inputList = new ArrayList<Integer>();
+        inputList.add(0,1);
+        inputList.add(1, 2);
+        inputList.add(2, 3);
+        Exercise1 test = new Exercise1();
+        Map<String, Integer> returnedMap = test.returnsMap(inputList);
+        System.out.println(returnedMap);
+        System.out.println(returnedMap.keySet());
+        System.out.println(returnedMap.entrySet());
+        System.out.println(returnedMap.values());
+        System.out.println(returnedMap.get("total"));
     }
 }
