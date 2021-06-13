@@ -18,6 +18,19 @@ public class Exercise3Test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
+    public void shouldReturnExceptionForNullListOrMap() {
+
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("The list/map cannot be null."));
+
+        try {
+            new Exercise3().modifiedValues(null, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void shouldReturnExceptionForEmptyList() {
 
         List<Integer> inputList = new ArrayList<>();
@@ -28,7 +41,11 @@ public class Exercise3Test {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("The list should have, at least, one element."));
 
-        new Exercise3().modifiedValues(inputMap, inputList);
+        try {
+            new Exercise3().modifiedValues(inputMap, inputList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -43,7 +60,11 @@ public class Exercise3Test {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("The input map doesn't have any valid operation."));
 
-        new Exercise3().modifiedValues(inputMap, inputList);
+        try {
+            new Exercise3().modifiedValues(inputMap, inputList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -60,7 +81,11 @@ public class Exercise3Test {
         expectedList.add(2);
         expectedList.add(3);
 
-        Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        try {
+            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -77,7 +102,11 @@ public class Exercise3Test {
         expectedList.add(4);
         expectedList.add(6);
 
-        Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        try {
+            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -94,7 +123,11 @@ public class Exercise3Test {
         expectedList.add(5);
         expectedList.add(25);
 
-        Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        try {
+            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -111,7 +144,11 @@ public class Exercise3Test {
         expectedList.add(6);
         expectedList.add(2);
 
-        Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        try {
+            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -129,6 +166,10 @@ public class Exercise3Test {
         List<Integer> expectedList = new ArrayList<>();
         expectedList.add(8);
 
-        Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        try {
+            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

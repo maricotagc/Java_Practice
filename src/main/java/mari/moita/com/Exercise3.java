@@ -7,7 +7,11 @@ import java.util.Map;
 
 public class Exercise3 {
 
-    public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList){
+    public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList) throws Exception {
+
+        if (inputList == null || inputList == null) {
+            throw new IllegalArgumentException("The list/map cannot be null.");
+        }
 
         if (inputList.isEmpty()) {
             throw new IllegalArgumentException("The list should have, at least, one element.");
@@ -31,6 +35,9 @@ public class Exercise3 {
                         result = result * inputMap.get(key);
                     break;
                     case "DIV":
+                        if (inputMap.get(key) == 0) {
+                            throw new Exception("This list contains a combination which results in a number divided by 0.");
+                        } else
                         result = result / inputMap.get(key);
                     break;
                     case "SUB":
@@ -43,8 +50,9 @@ public class Exercise3 {
         return modifiedValues;
     }
 
-    //TODO: validation for null map
-    //TODO: validation for null list
-    //TODO: exception for division / 0
+    public static void main(String[] args) {
+        System.out.println(1/0);
+    }
+
     //TODO: order of loop inside the switch
 }
