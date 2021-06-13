@@ -40,7 +40,7 @@ Example of Map
   
 ### Exercise 4
 
-#### Create a method that receives an List<Person> and return an array of Person with the oldest man and the yogenst woman in it.
+#### Create a method that receives an List<Person> and return an array of Person with the oldest man and the youngest woman in it.
   
 Object Person must be implemented and it has the following attributes: 
   - name
