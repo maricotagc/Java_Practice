@@ -94,7 +94,6 @@ public class Exercise3Test {
         expectedList.add(3);
 
         Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
-
     }
 
     @Test
@@ -194,10 +193,7 @@ public class Exercise3Test {
         inputMap.put("SUB", 2);
 
         List<Integer> expectedList = new ArrayList<>();
-        expectedList.add(12);
-        expectedList.add(20);
-        expectedList.add(5);
-        expectedList.add(8);
+        expectedList.add(10);
 
         try {
             Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
