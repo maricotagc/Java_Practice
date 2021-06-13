@@ -18,12 +18,36 @@ public class Exercise3Test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void shouldReturnExceptionForNullListOrMap() throws Exception {
+    public void shouldReturnExceptionForNullListAndMap() throws Exception {
 
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("The list/map cannot be null."));
 
         new Exercise3().modifiedValues(null, null);
+    }
+
+    @Test
+    public void shouldReturnExceptionForNullList() throws Exception {
+
+        Map<String, Integer> inputMap = new HashMap<>();
+        inputMap.put("SUM", 1);
+
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("The list/map cannot be null."));
+
+        new Exercise3().modifiedValues(inputMap, null);
+    }
+
+    @Test
+    public void shouldReturnExceptionForNullMap() throws Exception {
+
+        List<Integer> inputList = new ArrayList<>();
+        inputList.add(1);
+
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("The list/map cannot be null."));
+
+        new Exercise3().modifiedValues(null, inputList);
     }
 
     @Test

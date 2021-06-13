@@ -8,7 +8,7 @@ public class Exercise3 {
 
     public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList) throws Exception{
 
-        if (inputList == null || inputList == null) {
+        if (inputList == null || inputMap == null) {
             throw new IllegalArgumentException("The list/map cannot be null.");
         }
 
@@ -22,26 +22,20 @@ public class Exercise3 {
 
         List<Integer> modifiedValues = new ArrayList<>();
 
-        if (inputMap.containsKey("SUM")) {
-            for (int i = 0; i < inputList.size(); i++) {
+        for (int i = 0; i < inputList.size(); i++) {
+
+            if (inputMap.containsKey("SUM")) {
                 int result = inputList.get(i);
                 result = result + inputMap.get("SUM");
                 modifiedValues.add(result);
             }
-        }
-
-        if (inputMap.containsKey("MULT")) {
-            for (int i = 0; i < inputList.size(); i++) {
+            if (inputMap.containsKey("MULT")) {
                 int result = inputList.get(i);
                 result = result * inputMap.get("MULT");
                 modifiedValues.add(result);
             }
-        }
-
-        if (inputMap.containsKey("DIV")) {
-            for (int i = 0; i < inputList.size(); i++) {
+            if (inputMap.containsKey("DIV")) {
                 int result = inputList.get(i);
-
                 if (inputMap.get("DIV") == 0) {
                     throw new Exception("This map contains DIV as zero which is not a valid operation.");
                 } else {
@@ -49,15 +43,49 @@ public class Exercise3 {
                     modifiedValues.add(result);
                 }
             }
-        }
-
-        if (inputMap.containsKey("SUB")) {
-            for (int i = 0; i < inputList.size(); i++) {
+            if (inputMap.containsKey("SUB")) {
                 int result = inputList.get(i);
                 result = result - inputMap.get("SUB");
                 modifiedValues.add(result);
             }
         }
+
+//        if (inputMap.containsKey("SUM")) {
+//            for (int i = 0; i < inputList.size(); i++) {
+//                int result = inputList.get(i);
+//                result = result + inputMap.get("SUM");
+//                modifiedValues.add(result);
+//            }
+//        }
+//
+//        if (inputMap.containsKey("MULT")) {
+//            for (int i = 0; i < inputList.size(); i++) {
+//                int result = inputList.get(i);
+//                result = result * inputMap.get("MULT");
+//                modifiedValues.add(result);
+//            }
+//        }
+//
+//        if (inputMap.containsKey("DIV")) {
+//            for (int i = 0; i < inputList.size(); i++) {
+//                int result = inputList.get(i);
+//
+//                if (inputMap.get("DIV") == 0) {
+//                    throw new Exception("This map contains DIV as zero which is not a valid operation.");
+//                } else {
+//                    result = result / inputMap.get("DIV");
+//                    modifiedValues.add(result);
+//                }
+//            }
+//        }
+//
+//        if (inputMap.containsKey("SUB")) {
+//            for (int i = 0; i < inputList.size(); i++) {
+//                int result = inputList.get(i);
+//                result = result - inputMap.get("SUB");
+//                modifiedValues.add(result);
+//            }
+//        }
 
         return modifiedValues;
     }
