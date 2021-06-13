@@ -18,20 +18,16 @@ public class Exercise3Test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void shouldReturnExceptionForNullListOrMap() {
+    public void shouldReturnExceptionForNullListOrMap() throws Exception {
 
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("The list/map cannot be null."));
 
-        try {
-            new Exercise3().modifiedValues(null, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        new Exercise3().modifiedValues(null, null);
     }
 
     @Test
-    public void shouldReturnExceptionForEmptyList() {
+    public void shouldReturnExceptionForEmptyList() throws Exception {
 
         List<Integer> inputList = new ArrayList<>();
 
@@ -41,15 +37,11 @@ public class Exercise3Test {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("The list should have, at least, one element."));
 
-        try {
-            new Exercise3().modifiedValues(inputMap, inputList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        new Exercise3().modifiedValues(inputMap, inputList);
     }
 
     @Test
-    public void shouldReturnExceptionForNotValidOperation() {
+    public void shouldReturnExceptionForNotValidOperation() throws Exception {
 
         List<Integer> inputList = new ArrayList<>();
         inputList.add(1);
@@ -60,15 +52,11 @@ public class Exercise3Test {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("The input map doesn't have any valid operation."));
 
-        try {
-            new Exercise3().modifiedValues(inputMap, inputList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        new Exercise3().modifiedValues(inputMap, inputList);
     }
 
     @Test
-    public void shouldReturnModifiedValuesListForSUM() {
+    public void shouldReturnModifiedValuesListForSUM() throws Exception {
 
         List<Integer> inputList = new ArrayList<>();
         inputList.add(1);
@@ -81,11 +69,8 @@ public class Exercise3Test {
         expectedList.add(2);
         expectedList.add(3);
 
-        try {
-            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+
     }
 
     @Test
@@ -118,6 +103,27 @@ public class Exercise3Test {
 
         Map<String, Integer> inputMap = new HashMap<>();
         inputMap.put("DIV", 2);
+
+        List<Integer> expectedList = new ArrayList<>();
+        expectedList.add(5);
+        expectedList.add(25);
+
+        try {
+            Assert.assertEquals(expectedList, new Exercise3().modifiedValues(inputMap, inputList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void shouldReturnExceptionForDIVByZero() {
+
+        List<Integer> inputList = new ArrayList<>();
+        inputList.add(10);
+        inputList.add(50);
+
+        Map<String, Integer> inputMap = new HashMap<>();
+        inputMap.put("DIV", 0);
 
         List<Integer> expectedList = new ArrayList<>();
         expectedList.add(5);
@@ -164,6 +170,9 @@ public class Exercise3Test {
         inputMap.put("SUB", 2);
 
         List<Integer> expectedList = new ArrayList<>();
+        expectedList.add(12);
+        expectedList.add(20);
+        expectedList.add(5);
         expectedList.add(8);
 
         try {

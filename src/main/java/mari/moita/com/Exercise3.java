@@ -1,13 +1,12 @@
 package mari.moita.com;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Exercise3 {
 
-    public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList) throws Exception {
+    public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList) throws Exception{
 
         if (inputList == null || inputList == null) {
             throw new IllegalArgumentException("The list/map cannot be null.");
@@ -22,37 +21,44 @@ public class Exercise3 {
         }
 
         List<Integer> modifiedValues = new ArrayList<>();
-        
-        for (int i = 0; i < inputList.size(); i++) {
-            int result = inputList.get(i);
 
-            for (String key : inputMap.keySet()) {
-                switch (key) {
-                    case "SUM":
-                        result = result + inputMap.get(key);
-                        break;
-                    case "MULT":
-                        result = result * inputMap.get(key);
-                    break;
-                    case "DIV":
-                        if (inputMap.get(key) == 0) {
-                            throw new Exception("This list contains a combination which results in a number divided by 0.");
-                        } else
-                        result = result / inputMap.get(key);
-                    break;
-                    case "SUB":
-                        result = result - inputMap.get(key);
-                    break;
+        if (inputMap.containsKey("SUM")) {
+            for (int i = 0; i < inputList.size(); i++) {
+                int result = inputList.get(i);
+                result = result + inputMap.get("SUM");
+                modifiedValues.add(result);
+            }
+        }
+
+        if (inputMap.containsKey("MULT")) {
+            for (int i = 0; i < inputList.size(); i++) {
+                int result = inputList.get(i);
+                result = result * inputMap.get("MULT");
+                modifiedValues.add(result);
+            }
+        }
+
+        if (inputMap.containsKey("DIV")) {
+            for (int i = 0; i < inputList.size(); i++) {
+                int result = inputList.get(i);
+
+                if (inputMap.get("DIV") == 0) {
+                    throw new Exception("This map contains DIV as zero which is not a valid operation.");
+                } else {
+                    result = result / inputMap.get("DIV");
+                    modifiedValues.add(result);
                 }
             }
-            modifiedValues.add(result);
         }
+
+        if (inputMap.containsKey("SUB")) {
+            for (int i = 0; i < inputList.size(); i++) {
+                int result = inputList.get(i);
+                result = result - inputMap.get("SUB");
+                modifiedValues.add(result);
+            }
+        }
+
         return modifiedValues;
     }
-
-    public static void main(String[] args) {
-        System.out.println(1/0);
-    }
-
-    //TODO: order of loop inside the switch
 }
