@@ -37,3 +37,16 @@ Example of Map
 #### Validation
 * Map must have at least one of the operations above
 * lists cannot be empty
+  
+### Exercise 4
+
+#### Create a method that receives an List<Person> and return an array of Person with the oldest man and the yogenst woman in it.
+  
+Object Person must be implemented and it has the following attributes: 
+  - name
+  - gender
+  - age
+
+#### Validation
+* List must have at leats one woman and one man
+
