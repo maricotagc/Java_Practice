@@ -40,9 +40,8 @@ public class Exercise3 {
             if (inputMap.containsKey(DIV)) {
                 if (inputMap.get(DIV) == 0) {
                     throw new Exception("This map contains DIV as zero which is not a valid operation.");
-                } else {
-                    result = result / inputMap.get(DIV);
                 }
+                    result = result / inputMap.get(DIV);
             }
             if (inputMap.containsKey(SUB)) {
                 result = result - inputMap.get(SUB);
