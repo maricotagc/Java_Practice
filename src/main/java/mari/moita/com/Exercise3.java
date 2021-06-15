@@ -11,7 +11,7 @@ public class Exercise3 {
     static final String DIV = "DIV";
     static final String SUB = "SUB";
 
-    public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList) throws Exception{
+    public List<Integer> modifiedValues(Map<String, Integer> inputMap, List<Integer> inputList) throws Exception {
 
         if (inputList == null || inputMap == null) {
             throw new IllegalArgumentException("The list/map cannot be null.");
@@ -21,7 +21,7 @@ public class Exercise3 {
             throw new IllegalArgumentException("The list should have, at least, one element.");
         }
 
-        if (!(inputMap.containsKey(SUM) || inputMap.containsKey(MULT) || inputMap.containsKey(DIV) || inputMap.containsKey("SUB"))) {
+        if (!(inputMap.containsKey(SUM) || inputMap.containsKey(MULT) || inputMap.containsKey(DIV) || inputMap.containsKey(SUB))) {
             throw new IllegalArgumentException("The input map doesn't have any valid operation.");
         }
 
@@ -41,7 +41,7 @@ public class Exercise3 {
                 if (inputMap.get(DIV) == 0) {
                     throw new Exception("This map contains DIV as zero which is not a valid operation.");
                 }
-                    result = result / inputMap.get(DIV);
+                result = result / inputMap.get(DIV);
             }
             if (inputMap.containsKey(SUB)) {
                 result = result - inputMap.get(SUB);
