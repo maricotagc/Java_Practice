@@ -1,11 +1,30 @@
 package mari.moita.com;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise4 {
 
-    public static Person[] listContainsWomanAndMan(List<Person> people) {
+    public static boolean listContainsManAndWoman(List<Person> people) {
+
+        boolean female = false;
+        boolean male = false;
+
+        for (Person p : people) {
+            if ("male".equals(p.getGender())) {
+                male = true;
+            } else if ("female".equals(p.getGender())) {
+                female = true;
+            }
+            if (female && male) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Person[] OldestManAndYoungestWoman(List<Person> people) {
+
+        Exercise4.listContainsManAndWoman(people);
 
         Person[] agePeople = new Person[2];
 
@@ -21,10 +40,9 @@ public class Exercise4 {
                 }
             }
             else {
-                new IllegalArgumentException("Gender must be female or male");
+                throw new IllegalArgumentException("Gender must be female or male");
             }
         }
-
         return agePeople;
     }
 }

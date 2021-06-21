@@ -16,6 +16,26 @@ public class Exercise4Test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
+    public void shouldReturnTrue() {
+
+        List<Person> inputList = new ArrayList<>();
+        inputList.add(new Person("Mari", "female", 38));
+        inputList.add(new Person("Rapha", "male", 44));
+
+        Assert.assertTrue(Exercise4.listContainsManAndWoman(inputList));
+    }
+
+    @Test
+    public void shouldReturnFalse() {
+
+        List<Person> inputList = new ArrayList<>();
+        inputList.add(new Person("Mari", "male", 38));
+        inputList.add(new Person("Rapha", "male", 44));
+
+        Assert.assertFalse(Exercise4.listContainsManAndWoman(inputList));
+    }
+
+    @Test
     public void shouldReturnOldestManAndYoungestWoman() {
 
         List<Person> inputList = new ArrayList<>();
@@ -28,7 +48,7 @@ public class Exercise4Test {
         expectedList[0] = new Person("Rapha", "male", 44);
         expectedList[1] = new Person("Juliana", "female", 33);
 
-        Person[] actualList = Exercise4.listContainsWomanAndMan(inputList);
+        Person[] actualList = Exercise4.OldestManAndYoungestWoman(inputList);
         Assert.assertEquals(expectedList[0].getName(), actualList[0].getName());
         Assert.assertEquals(expectedList[1].getName(), actualList[1].getName());
     }
@@ -36,13 +56,38 @@ public class Exercise4Test {
     @Test
     public void shouldReturnExceptionForInvalidGender() {
 
-        List<Person> inputList = new ArrayList<>();
-        inputList.add(new Person("Mari", "gay", 38));
-        inputList.add(new Person("Rapha", "males", 44));
-
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("Gender must be female or male"));
-        Exercise4.listContainsWomanAndMan(inputList);
+
+        List<Person> inputList = new ArrayList<>();
+        inputList.add(new Person("Mari", "females", 38));
+
+        Exercise4.OldestManAndYoungestWoman(inputList);
     }
 
+    @Test
+    public void shouldReturnExceptionForListContainingOnlyWoman() {
+
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("List must have, at least, one male."));
+
+        List<Person> inputList = new ArrayList<>();
+        inputList.add(new Person("Mari", "female", 38));
+        inputList.add(new Person("Raphaela", "female", 44));
+
+        Exercise4.OldestManAndYoungestWoman(inputList);
+    }
+
+    @Test
+    public void shouldReturnExceptionForListContainingOnlyMan() {
+
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(equalTo("List must have, at least, one female."));
+
+        List<Person> inputList = new ArrayList<>();
+        inputList.add(new Person("Mari", "male", 38));
+        inputList.add(new Person("Raphaela", "male", 44));
+
+        Exercise4.OldestManAndYoungestWoman(inputList);
+    }
 }

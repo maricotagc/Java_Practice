@@ -1,8 +1,18 @@
 package mari.moita.com;
 
-public class Person {
+import java.util.Objects;
+
+public class Person extends Object {
 
     private String name;
+    private String gender;
+    private int age;
+
+    public Person(String name, String gender, int age) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+    }
 
     public String getName() {
         return name;
@@ -28,12 +38,16 @@ public class Person {
         this.age = age;
     }
 
-    private String gender;
-    private int age;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age && Objects.equals(name, person.name) && Objects.equals(gender, person.gender);
+    }
 
-    public Person(String name, String gender, int age) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, gender, age);
     }
 }
