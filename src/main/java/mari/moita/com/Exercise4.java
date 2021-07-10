@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Exercise4 {
 
-    public static boolean listContainsManAndWoman(List<Person> people) {
+    public void listContainsManAndWoman(List<Person> people) {
 
         boolean female = false;
         boolean male = false;
@@ -15,16 +15,15 @@ public class Exercise4 {
             } else if ("female".equals(p.getGender())) {
                 female = true;
             }
-            if (female && male) {
-                return true;
-            }
         }
-        return false;
+        if (!female || !male) {
+            throw new IllegalArgumentException("List must have, at least, one male and one female.");
+        }
     }
 
-    public static Person[] OldestManAndYoungestWoman(List<Person> people) {
+    public Person[] OldestManAndYoungestWoman(List<Person> people) {
 
-        Exercise4.listContainsManAndWoman(people);
+        listContainsManAndWoman(people);
 
         Person[] agePeople = new Person[2];
 
@@ -33,14 +32,10 @@ public class Exercise4 {
                 if (agePeople[0] == null || person.getAge() > agePeople[0].getAge()) {
                     agePeople[0] = person;
                 }
-            }
-            else if ("female".equals(person.getGender())) {
+            } else if ("female".equals(person.getGender())) {
                 if (agePeople[1] == null || person.getAge() < agePeople[1].getAge()) {
                     agePeople[1] = person;
                 }
-            }
-            else {
-                throw new IllegalArgumentException("Gender must be female or male");
             }
         }
         return agePeople;
