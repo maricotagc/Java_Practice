@@ -20,11 +20,11 @@ public class Exercise4Test {
 
         Exercise4 test = new Exercise4();
 
-        List<Person> inputList = new ArrayList<>();
-        inputList.add(new Person("Mari", "female", 38));
-        inputList.add(new Person("Rapha", "male", 44));
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Mari", "female", 38));
+        personList.add(new Person("Rapha", "male", 44));
 
-        test.listContainsManAndWoman(inputList);
+        test.listContainsManAndWoman(personList);
     }
 
     @Test
@@ -35,30 +35,30 @@ public class Exercise4Test {
 
         Exercise4 test = new Exercise4();
 
-        List<Person> inputList = new ArrayList<>();
-        inputList.add(new Person("Mari", "male", 38));
-        inputList.add(new Person("Rapha", "male", 44));
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Mari", "male", 38));
+        personList.add(new Person("Rapha", "male", 44));
 
-        test.listContainsManAndWoman(inputList);
+        test.listContainsManAndWoman(personList);
     }
 
     @Test
     public void shouldReturnOldestManAndYoungestWoman() {
         Exercise4 test = new Exercise4();
 
-        List<Person> inputList = new ArrayList<>();
-        inputList.add(new Person("Mari", "female", 38));
-        inputList.add(new Person("Rapha", "male", 44));
-        inputList.add(new Person("Juliana", "female", 33));
-        inputList.add(new Person("Lucas", "male", 2));
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Mari", "female", 38));
+        personList.add(new Person("Rapha", "male", 44));
+        personList.add(new Person("Juliana", "female", 33));
+        personList.add(new Person("Lucas", "male", 2));
 
-        Person[] expectedList = new Person[2];
-        expectedList[0] = new Person("Rapha", "male", 44);
-        expectedList[1] = new Person("Juliana", "female", 33);
+        Person[] expectedPersonArray = new Person[2];
+        expectedPersonArray[0] = new Person("Rapha", "male", 44);
+        expectedPersonArray[1] = new Person("Juliana", "female", 33);
 
-        Person[] actualList = test.getOldestManAndYoungestWoman(inputList);
-        Assert.assertEquals(expectedList[0].getName(), actualList[0].getName());
-        Assert.assertEquals(expectedList[1].getName(), actualList[1].getName());
+        Person[] actualPersonArray = test.getOldestManAndYoungestWoman(personList);
+        Assert.assertEquals(expectedPersonArray[0].getName(), actualPersonArray[0].getName());
+        Assert.assertEquals(expectedPersonArray[1].getName(), actualPersonArray[1].getName());
     }
 
     @Test
@@ -68,11 +68,11 @@ public class Exercise4Test {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("List must have, at least, one male and one female."));
 
-        List<Person> inputList = new ArrayList<>();
-        inputList.add(new Person("Mari", "female", 38));
-        inputList.add(new Person("Raphaela", "female", 44));
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Mari", "female", 38));
+        personList.add(new Person("Raphaela", "female", 44));
 
-        test.getOldestManAndYoungestWoman(inputList);
+        test.getOldestManAndYoungestWoman(personList);
     }
 
     @Test
@@ -83,10 +83,10 @@ public class Exercise4Test {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage(equalTo("List must have, at least, one male and one female."));
 
-        List<Person> inputList = new ArrayList<>();
-        inputList.add(new Person("Mari", "male", 38));
-        inputList.add(new Person("Raphaela", "male", 44));
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Mari", "male", 38));
+        personList.add(new Person("Raphaela", "male", 44));
 
-        test.getOldestManAndYoungestWoman(inputList);
+        test.getOldestManAndYoungestWoman(personList);
     }
 }
