@@ -50,3 +50,12 @@ Object Person must be implemented and it has the following attributes:
 #### Validation
 * List must have at leats one woman and one man
 
+### Exersice 5
+  
+#### Create a class Compute that receives an instance of type Operation and has method that receives two BigDecimals and return the results of the operation.
+ 
+  Operations are SUM, SUB, MULT and DIV 
+  
+ Objects:
+  - Compute
+  - Operation
