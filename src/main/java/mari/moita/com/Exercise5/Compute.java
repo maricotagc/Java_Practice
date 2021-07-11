@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Compute {
 
-    private Operation operation = null;
+    private final Operation operation;
 
     public Compute(Operation operation) {
         this.operation = operation;
