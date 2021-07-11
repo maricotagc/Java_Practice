@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Exercise4 {
 
-    static final String MALE = "male";
-    static final String FEMALE = "female";
+    private static final String MALE = "male";
+    private static final String FEMALE = "female";
 
-    static final int MALE_INDEX = 0;
-    static final int FEMALE_INDEX = 1;
+    private static final int MALE_INDEX = 0;
+    private static final int FEMALE_INDEX = 1;
 
     public void listContainsManAndWoman(List<Person> people) {
 
