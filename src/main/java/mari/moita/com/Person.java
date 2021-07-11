@@ -2,7 +2,7 @@ package mari.moita.com;
 
 import java.util.Objects;
 
-public class Person extends Object {
+public class Person {
 
     private String name;
     private String gender;

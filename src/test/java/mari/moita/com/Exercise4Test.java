@@ -56,7 +56,7 @@ public class Exercise4Test {
         expectedList[0] = new Person("Rapha", "male", 44);
         expectedList[1] = new Person("Juliana", "female", 33);
 
-        Person[] actualList = test.OldestManAndYoungestWoman(inputList);
+        Person[] actualList = test.getOldestManAndYoungestWoman(inputList);
         Assert.assertEquals(expectedList[0].getName(), actualList[0].getName());
         Assert.assertEquals(expectedList[1].getName(), actualList[1].getName());
     }
@@ -72,7 +72,7 @@ public class Exercise4Test {
         inputList.add(new Person("Mari", "female", 38));
         inputList.add(new Person("Raphaela", "female", 44));
 
-        test.OldestManAndYoungestWoman(inputList);
+        test.getOldestManAndYoungestWoman(inputList);
     }
 
     @Test
@@ -87,6 +87,6 @@ public class Exercise4Test {
         inputList.add(new Person("Mari", "male", 38));
         inputList.add(new Person("Raphaela", "male", 44));
 
-        test.OldestManAndYoungestWoman(inputList);
+        test.getOldestManAndYoungestWoman(inputList);
     }
 }
