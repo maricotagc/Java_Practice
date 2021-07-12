@@ -1,52 +1,26 @@
 package mari.moita.com.Exercise6;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Diet {
 
-    Map<Ingredient, Double> ingredientHashMap = new HashMap<Ingredient, Double>();
+    private final Map<Ingredient, Double> ingredientHashMap;
 
     public Diet(Map<Ingredient, Double> ingredientHashMap) {
         this.ingredientHashMap = ingredientHashMap;
     }
 
-    private double getTotalProtein(){
-        double total = 0;
-        for (Map.Entry<Ingredient, Double> entry : ingredientHashMap.entrySet()) {
-            total = total + entry.getKey().getProtein();
-        }
-        return total;
-    }
-
-    private double getTotalCarb(){
-        double total = 0;
-        for (Map.Entry<Ingredient, Double> entry : ingredientHashMap.entrySet()) {
-            total = total + entry.getKey().getCarbs();
-        }
-        return total;
-    }
-
-    private double getTotalFat(){
-        double total = 0;
-        for (Map.Entry<Ingredient, Double> entry : ingredientHashMap.entrySet()) {
-            total = total + entry.getKey().getFat();
-        }
-        return total;
-    }
-
+    //TODO fix calculation which should include weight
     public double getTotalCalories(){
-        return getTotalCarb() + getTotalFat() + getTotalProtein();
-    }
-
-    public double addExtraIngredient(Ingredient ingredient) {
-        double total = getTotalCalories();
-        if (ingredient instanceof Rice) {
-            total = total + ingredient.getCarbs() + ingredient.getProtein() + ingredient.getFat();
-        }
-        if (ingredient instanceof Egg) {
-            total = total + ingredient.getCarbs() + ingredient.getProtein() + ingredient.getFat();
+        double total = 0;
+        for (Map.Entry<Ingredient, Double> entry : ingredientHashMap.entrySet()) {
+            Ingredient ingredient = entry.getKey();
+            total = total + ingredient.getFat() + ingredient.getProtein() + ingredient.getCarbs();
         }
         return total;
+    }
+
+    public void addExtraIngredientAndQuantity(Ingredient ingredient, Double quantity) {
+        ingredientHashMap.put(ingredient, quantity);
     }
 }
