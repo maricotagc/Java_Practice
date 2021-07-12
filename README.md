@@ -59,3 +59,18 @@ Object Person must be implemented and it has the following attributes:
  Objects:
   - Compute
   - Operation
+  
+### Exersice 6
+  
+#### Create a `Diet` class that receives a Map of `Ingredient` and calculate the amount of PROTEIN, CARB, FAT and total CALORIES based on the quantity of each ingredient provided. The Map should contain the ingredient and the its quantity in Kg.
+  
+  the Diet class must have the following methods:
+  - getTotalProtein
+  - getTotalCarb
+  - getTotalFat
+  - getTotalCalories
+  - addExtraIngredient
+  
+  
+ 
+  
