@@ -8,20 +8,20 @@ import static org.junit.Assert.*;
 public class EggTest {
 
     @Test
-    public void shouldReturnWeightOfCarbs() {
-        Egg egg = new Egg(10.0);
-        Assert.assertEquals(Double.valueOf("0.1"), Double.valueOf(egg.getCarbs()));
+    public void shouldReturnCarbs() {
+        Egg egg = new Egg();
+        Assert.assertEquals(9.0, egg.getCarbs(), 1);
     }
 
     @Test
     public void shouldReturnWeightOfFat() {
-        Egg egg = new Egg(10.0);
-        Assert.assertEquals(Double.valueOf("1.2"), Double.valueOf(egg.getFat()));
+        Egg egg = new Egg();
+        Assert.assertEquals(2.0, egg.getFat(), 1);
     }
 
     @Test
     public void shouldReturnWeightOfProtein() {
-        Egg egg = new Egg(10.0);
-        Assert.assertEquals(Double.valueOf("1.7"), Double.valueOf(egg.getProtein()));
+        Egg egg = new Egg();
+        Assert.assertEquals(5.0, egg.getProtein(), 1);
     }
 }

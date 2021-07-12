@@ -8,19 +8,19 @@ public class RiceTest {
 
     @Test
     public void shouldReturnWeightOfCarbs() {
-        Rice rice = new Rice(300.0);
-        Assert.assertEquals(Double.valueOf("27"), Double.valueOf(rice.getCarbs()));
+        Rice rice = new Rice();
+        Assert.assertEquals(9.0, rice.getCarbs(), 1);
     }
 
     @Test
     public void shouldReturnWeightOfFat() {
-        Rice rice = new Rice(300.0);
-        Assert.assertEquals(Double.valueOf("3"), Double.valueOf(rice.getFat()));
+        Rice rice = new Rice();
+        Assert.assertEquals(9.0, rice.getCarbs(), 1);
     }
 
     @Test
     public void shouldReturnWeightOfProtein() {
-        Rice rice = new Rice(300.0);
-        Assert.assertEquals(Double.valueOf("9"), Double.valueOf(rice.getProtein()));
+        Rice rice = new Rice();
+        Assert.assertEquals(9.0, rice.getCarbs(), 1);
     }
 }

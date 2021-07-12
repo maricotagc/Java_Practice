@@ -1,23 +1,8 @@
 package mari.moita.com.Exercise6;
 
-public class Egg extends AbstractIngredient implements Ingredient {
+public class Egg extends AbstractIngredient {
 
-    public Egg(Double weight) {
-        super(weight);
-    }
-
-    @Override
-    public double getCarbs() {
-        return (this.weight * 1)/100;
-    }
-
-    @Override
-    public double getFat() {
-        return (this.weight * 12)/100;
-    }
-
-    @Override
-    public double getProtein() {
-        return (this.weight * 17)/100;
+    public Egg() {
+        super(9, 2, 5);
     }
 }

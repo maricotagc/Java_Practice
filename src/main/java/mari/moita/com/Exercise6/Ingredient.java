@@ -2,10 +2,10 @@ package mari.moita.com.Exercise6;
 
 public interface Ingredient {
 
-    public double getCarbs();
+    double getCarbs();
 
-    public double getFat();
+    double getFat();
 
-    public double getProtein();
+    double getProtein();
 
 }

@@ -10,26 +10,26 @@ import java.util.Map;
 public class DietTest {
 
     Diet diet;
-    Rice rice = new Rice(300.0);
-    Egg egg = new Egg(20.0);
+    Rice rice;
+    Egg egg;
 
     @Before
     public void initialize() {
-        rice = new Rice(300.0);
-        egg = new Egg(20.0);
+        rice = new Rice();
+        egg = new Egg();
         Map<Ingredient, Double> ingredients = new HashMap<>();
-        ingredients.put(rice,rice.weight);
-        ingredients.put(egg,egg.weight);
+        ingredients.put(rice,100.0);
+        ingredients.put(egg,20.0);
         diet = new Diet(ingredients);
     }
 
     @Test
     public void shouldReturnTotalCalories() {
-        Assert.assertEquals(Double.valueOf("45.0"), Double.valueOf(diet.getTotalCalories()));
+        Assert.assertEquals(32.0, diet.getTotalCalories(), 1);
     }
 
     @Test
     public void shouldReturnNewTotalOfCalories() {
-        Assert.assertEquals(Double.valueOf("51"), Double.valueOf(diet.addExtraIngredient(egg)));
+        Assert.assertEquals(48.0, diet.addExtraIngredient(egg), 1);
     }
 }
