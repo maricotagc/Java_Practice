@@ -69,7 +69,7 @@ Object Person must be implemented and it has the following attributes:
   - getTotalCarb
   - getTotalFat
   - getTotalCalories
-  - addExtraIngredient
+  - addExtraIngredientAndQuantity
   
   
  
