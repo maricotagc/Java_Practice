@@ -15,7 +15,10 @@ public class Diet {
         double total = 0;
         for (Map.Entry<Ingredient, Double> entry : ingredientHashMap.entrySet()) {
             Ingredient ingredient = entry.getKey();
-            total = total + ingredient.getFat() + ingredient.getProtein() + ingredient.getCarbs();
+
+                total = total + ((ingredient.getCarbs() * entry.getValue()) / 100) +
+                                ((ingredient.getFat() * entry.getValue()) / 100) +
+                                ((ingredient.getProtein() * entry.getValue()) / 100);
         }
         return total;
     }
