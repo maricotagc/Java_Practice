@@ -10,7 +10,6 @@ public class Diet {
         this.ingredientHashMap = ingredientHashMap;
     }
 
-    //TODO fix calculation which should include weight
     public double getTotalCalories(){
         double total = 0;
         for (Map.Entry<Ingredient, Double> entry : ingredientHashMap.entrySet()) {

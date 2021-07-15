@@ -28,14 +28,11 @@ public class DietTest {
         Assert.assertEquals(19.2, diet.getTotalCalories(), 1);
     }
 
-    //TODO finalize this scenario
-//    @Test
-//    public void shouldReturnNewTotalOfCalories() {
-//        diet.addExtraIngredientAndQuantity(egg, 1.0);
-//        Map<Ingredient, Double> expectedMap = new HashMap<>();
-//        expectedMap.put(rice,100.0);
-//        expectedMap.put(egg,20.0);
-//        expectedMap.put(egg,1.0);
-//
-//    }
+    @Test
+    public void shouldReturnNewTotalOfCalories() {
+
+        diet.addExtraIngredientAndQuantity(egg, 50.0);
+
+        Assert.assertEquals(24.0, diet.getTotalCalories(), 1);
+    }
 }
