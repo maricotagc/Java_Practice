@@ -50,7 +50,7 @@ Object Person must be implemented and it has the following attributes:
 #### Validation
 * List must have at leats one woman and one man
 
-### Exersice 5
+### Exercise 5
   
 #### Create a class Compute that receives an instance of type Operation and has method that receives two BigDecimals and return the results of the operation.
  
@@ -60,7 +60,7 @@ Object Person must be implemented and it has the following attributes:
   - Compute
   - Operation
   
-### Exersice 6
+### Exercise 6
   
 #### Create a `Diet` class that receives a Map of `Ingredient` and calculate the amount of PROTEIN, CARB, FAT and total CALORIES based on the quantity of each ingredient provided. The Map should contain the ingredient and the its quantity in Kg.
   
@@ -70,7 +70,21 @@ Object Person must be implemented and it has the following attributes:
   - getTotalFat
   - getTotalCalories
   - addExtraIngredientAndQuantity
-  
-  
- 
-  
+
+
+### Exercise 7
+
+#### Create a application where is possible to record matches between players and its results. Features:
+
+* Register a player
+* Delete a player
+* Update a player
+* Register a match
+* Delete a match
+* Register a match final result
+* Update a match final result
+* List all players
+* List all in progress matches
+* List all in finalized matches
+* List all matches per player
+* List all player’s victories
