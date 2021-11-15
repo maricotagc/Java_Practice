@@ -74,7 +74,7 @@ Object Person must be implemented and it has the following attributes:
 
 ### Exercise 7
 
-#### Create a application where is possible to record matches between players and its results. Features:
+#### Create an application where it is possible to record matches between players and its results. Features:
 
 * Register a player
 * Delete a player
