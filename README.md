@@ -72,7 +72,7 @@ Object Person must be implemented and it has the following attributes:
   - addExtraIngredientAndQuantity
 
 
-### Exercise 7
+### Exercise 8
 
 #### Create an application where it is possible to record matches between players and its results. Features:
 
