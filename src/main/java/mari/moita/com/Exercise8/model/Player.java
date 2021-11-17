@@ -1,4 +1,4 @@
-package mari.moita.com.Exercise8.Model;
+package mari.moita.com.Exercise8.model;
 
 import java.util.Objects;
 
@@ -6,10 +6,6 @@ public class Player {
 
     private String name;
     private int id;
-
-    public Player(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
@@ -21,6 +17,10 @@ public class Player {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
